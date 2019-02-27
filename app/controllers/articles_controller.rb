@@ -20,11 +20,11 @@ class ArticlesController < ApplicationController
     def show
         @article = Article.find(params[:id])
       end
-    # Article PUT edit
+    # Article GET article to update 
     def edit
         @article = Article.find(params[:id])
     end
-
+    # Article PUT
     def update
         @article = Article.find(params[:id])
        
@@ -33,6 +33,13 @@ class ArticlesController < ApplicationController
         else
           render 'edit'
         end
+    end
+    # Article Delete
+    def destroy
+        @article = Article.find(params[:id])
+        @article.destroy
+    
+        redirect_to articles_path
     end
 
 
