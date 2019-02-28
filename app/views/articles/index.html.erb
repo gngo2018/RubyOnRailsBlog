@@ -12,7 +12,8 @@
       <td><%= article.title %></td>
       <td><%= article.text %></td>
       <td>
-        <% article.comments.each do |comment| %>
+      <%# Return JSON Object on screen by adding (<%= article.comments.each) %>
+        <%= article.comments.each do |comment| %>
           <%= comment.commenter%><br>
         <% end %>
       </td>
@@ -25,3 +26,18 @@
     </tr>
   <% end %>
 </table>
+<hr />
+<h1>SQL Manipulation Practice</h1>
+<div>
+    <h3>Article Data</h3>
+      <%= @articles.each do |article| %>
+      <% end %>
+</div>
+
+<div>
+    <h3>Comment Data</h3>
+    <% @articles.each do |article| %>
+        <%= article.comments.each do |comment| %>
+        <% end %>
+    <% end %>
+</div>
