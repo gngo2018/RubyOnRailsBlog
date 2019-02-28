@@ -13,7 +13,7 @@
       <td><%= article.text %></td>
       <td>
       <%# Return JSON Object on screen by adding (<%= article.comments.each) %>
-        <%= article.comments.each do |comment| %>
+        <% article.comments.each do |comment| %>
           <%= comment.commenter%><br>
         <% end %>
       </td>
