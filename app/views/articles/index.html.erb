@@ -4,16 +4,18 @@
   <tr>
     <th>Title</th>
     <th>Text</th>
-    <th>Commenter</th>
+    <th>Date Created</th>
+    <th>First Commenter</th>
   </tr>
  
   <% @articles.each do |article| %>
     <tr>
       <td><%= article.title %></td>
       <td><%= article.text %></td>
+      <td><%= article.created_at %></td>
       <td>
-      <%# Return JSON Object on screen by adding (<%= article.comments.each) %>
-        <% article.comments.each do |comment| %>
+      <%# Return JSON Object on screen by adding (<%= article.comments.each) able to show the first commenter %>
+        <% article.comments.find(1) do |comment| %>
           <%= comment.commenter%><br>
         <% end %>
       </td>
@@ -40,4 +42,10 @@
         <%= article.comments.each do |comment| %>
         <% end %>
     <% end %>
+</div>
+
+<div>
+    <%# If want to find individual JSON object, need [id]%>
+    <h3>Individual Manipulation</h3>
+      <%= @articles.find([1]) %>
 </div>
